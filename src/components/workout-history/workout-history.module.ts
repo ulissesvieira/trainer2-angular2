@@ -1,7 +1,7 @@
-import { NgModule }      from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { WorkoutHistoryComponent }  from './workout-history.component';
-import {SharedModule} from '../shared/shared.module';
+import { WorkoutHistoryComponent } from './workout-history.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     imports: [
@@ -10,4 +10,5 @@ import {SharedModule} from '../shared/shared.module';
     declarations: [WorkoutHistoryComponent],
     exports: [WorkoutHistoryComponent],
 })
+
 export class WorkoutHistoryModule { }

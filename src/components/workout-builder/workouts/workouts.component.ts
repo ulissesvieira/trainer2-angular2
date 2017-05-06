@@ -1,8 +1,26 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { WorkoutPlan } from "../../../services/model";
+import { WorkoutService } from "../../../services/workout-service";
 
 @Component({
     selector: 'workouts',
     templateUrl: '/src/components/workout-builder/workouts/workouts.component.html'
 })
-export class WorkoutsComponent{
+export class WorkoutsComponent implements OnInit {
+    workoutList : Array<WorkoutPlan> = [];
+
+    constructor (
+        public router : Router,
+        public WorkoutService : WorkoutService
+        ) {}
+    
+    ngOnInit () {
+        this.workoutList = this.WorkoutService.getWorkouts();
+    }
+
+    onSelect (workout : WorkoutPlan) {
+        this.router.navigate(['./builder/workout', workout.name]);
+    }
 }

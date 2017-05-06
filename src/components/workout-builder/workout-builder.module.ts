@@ -11,11 +11,13 @@ import { WorkoutComponent } from "./workout/workout.component";
 import { WorkoutsComponent } from "./workouts/workouts.component";
 
 import { workoutBuilderRouting } from './workout-builder.routes';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
     imports : [
         CommonModule,
-        workoutBuilderRouting
+        workoutBuilderRouting,
+        SharedModule
     ],
 
     declarations : [
