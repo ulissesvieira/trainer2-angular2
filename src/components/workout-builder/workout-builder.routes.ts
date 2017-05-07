@@ -6,6 +6,7 @@ import { ExerciseComponent } from './exercise/exercise.component';
 import { ExercisesComponent } from './exercises/exercises.component';
 import { WorkoutComponent } from './workout/workout.component';
 import { WorkoutsComponent } from './workouts/workouts.component';
+import { WorkoutGuard } from './workout/workout.guard';
 
 export const workoutBuilderRoutes: Routes = [
     {
@@ -15,7 +16,7 @@ export const workoutBuilderRoutes: Routes = [
              { path:'', pathMatch: 'full', redirectTo: 'workouts'},
              { path:'workouts', component: WorkoutsComponent },
              { path:'workout/new',  component: WorkoutComponent },
-             { path:'workout/:id', component: WorkoutComponent },
+             { path:'workout/:id', component: WorkoutComponent, canActivate : [ WorkoutGuard ] },
              { path:'exercises', component: ExercisesComponent },
              { path:'exercise/new', component: ExerciseComponent },
              { path:'exercise/:id', component: ExerciseComponent }
