@@ -123,11 +123,13 @@ input[type="checkbox"].input-validation-error {
 .left-nav-exercises-bar {
     background-color: #1ba2db;
     min-height: 100%;
+    max-height: 100%;
     position: fixed;
     margin-top: -14px;
     margin-left:-15px;
     left:0px;
     width:325px;
+    overflow-y: auto;
 }
 
 .left-nav-exercises-bar div{
@@ -139,6 +141,7 @@ input[type="checkbox"].input-validation-error {
     background-color:#995466;
     color:white;
     text-align:center;
+    width:300px;
 }
 
 .left-nav-exercises-bar h3{
@@ -325,7 +328,6 @@ div[ng-view].ng-leave-active {
     color:white;
     margin-bottom:10px;
     background:#61b9ff;
-
 }
 
 .exercise.tile .title {
@@ -358,6 +360,21 @@ div[ng-view].ng-leave-active {
 .workouts-container{
     position:fixed;
     left:350px;
+    height:90%;
+    overflow-y:auto;
+    width:100%;
+}
+
+.workout-container{
+    position:fixed;
+    left:350px;
+    height:90%;
+    overflow-y:auto;
+    width:100%;
+}
+
+.workout-data{
+    padding-left: 30px;
 }
 
 .workout.tile {
@@ -381,6 +398,14 @@ div[ng-view].ng-leave-active {
     padding:0 10px 0 10px;
 }
 
+.list-title{
+    max-width:300px;
+}
+
+.exercise-list{
+    min-width: 350px;
+}
+
 .exercise-tile {
     width: 300px;
     height: 50px;
@@ -398,6 +423,9 @@ div[ng-view].ng-leave-active {
 .exercises-container{
     position:fixed;
     left:350px;
+    height:85%;
+    overflow-y:auto;
+    width:100%;
 }
 
 .exercises-leftnav-container{
@@ -441,3 +469,8 @@ div[ng-view].ng-leave-active {
   }
 }
 /*styles for spinner- end*/
+
+
+.label-as-badge {
+    border-radius: 1em;
+}
