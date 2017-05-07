@@ -1,18 +1,18 @@
 <div class="container-fluid">
     <div id="content-container" class="row">
-        <left-nav-main></left-nav-main>
-        <h1 class="text-center">Workouts</h1>
+        <left-nav-main></left-nav-main>        
     </div>
-    <div class="workout-container">
+    <div class="workouts-container">
+        <h1 class="text-center list-title">Workouts</h1>
         <div *ngFor="let workout of workoutList | orderBy : 'title'"
              class="workout title" (click)="onSelect(workout)">
              <div class="title">{{workout.title}}</div>
              <div class="stats">
-                <span class="duration">
+                <span class="duration" title="Duration">
                     <span class="glyphicon glyphicon-time"></span> - 
                     {{workout.totalWorkoutDuration() | secondsToTime}}
                 </span>
-                <span class="length pull-right">
+                <span class="length pull-right" title="Exercise Count">
                     <span class="glyphicon glyphicon-th-list"></span> - 
                     {{workout.exercises.length}}
                 </span>                
