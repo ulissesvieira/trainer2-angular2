@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule} from '@angular/common';
 import { SharedModule } from "../shared/shared.module";
-import { FormsModule }   from '@angular/forms';
+import { FormsModule, ReactiveFormsModule }   from '@angular/forms';
 
 import { ExerciseComponent } from "./exercise/exercise.component";
 import { ExercisesComponent } from "./exercises/exercises.component";
@@ -13,6 +13,8 @@ import { WorkoutComponent } from "./workout/workout.component";
 import { WorkoutsComponent } from "./workouts/workouts.component";
 import { WorkoutGuard } from './workout/workout.guard';
 import { WorkoutBuilderService } from "./builder-services/workout-builder-service";
+import { ExerciseBuilderService } from "./builder-services/exercise-builder-service";
+import { ExerciseGuard } from './exercise/exercise.guard';
 
 import { workoutBuilderRouting } from './workout-builder.routes';
 
@@ -20,6 +22,7 @@ import { workoutBuilderRouting } from './workout-builder.routes';
     imports: [
         CommonModule,
         FormsModule,
+        ReactiveFormsModule,
         SharedModule,
         workoutBuilderRouting
     ],
@@ -34,6 +37,8 @@ import { workoutBuilderRouting } from './workout-builder.routes';
         LeftNavMainComponent
     ],
     providers: [
+        ExerciseBuilderService,
+        ExerciseGuard,
         WorkoutBuilderService,
         WorkoutGuard
     ]
