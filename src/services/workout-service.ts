@@ -16,6 +16,39 @@ export class WorkoutService {
         return this.exercises;
     }
 
+    getExercise(exerciseName: string) {
+        for (var exercise of this.exercises) {
+            if (exercise.name === exerciseName) return exercise;
+        }
+        return null;
+    }
+
+    updateExercise(exercise: Exercise) {
+        for (var i = 0; i < this.exercises.length; i++) {
+            if (this.exercises[i].name === exercise.name) {
+                this.exercises[i] = exercise;
+            }
+        }
+        return exercise;
+    }
+
+    addExercise(exercise: Exercise) {
+        if (exercise.name) {
+            this.exercises.push(exercise);
+            return exercise;
+        }
+    }
+
+    deleteExercise(exerciseName: string) {
+        let exerciseIndex: number;
+        for (var i = 0; i < this.exercises.length; i++) {
+            if (this.exercises[i].name === exerciseName) {
+                exerciseIndex = i;
+            }
+        }
+        if (exerciseIndex >= 0) this.exercises.splice(exerciseIndex, 1);
+    }
+
     getWorkouts() {
         return this.workouts;
     }
@@ -171,9 +204,24 @@ export class WorkoutService {
     setupInitialWorkouts() {
         let exercises = this.getExercises();
         let workout = new WorkoutPlan("7MinWorkout", "7 Minute Workout", 10, []);
-        for (var exercise of this.exercises) {
+        for (var exercise of exercises) {
             workout.exercises.push(new ExercisePlan(exercise, 30));
         }
         this.workouts.push(workout);
+    }
+
+    addWorkout(workout: WorkoutPlan) {
+        if (workout.name) {
+            this.workouts.push(workout);
+            return workout;
+        }
+    }
+    updateWorkout(workout: WorkoutPlan) {
+        for (var i = 0; i < this.workouts.length; i++) {
+            if (this.workouts[i].name === workout.name) {
+                this.workouts[i] = workout;
+                break;
+            }
+        }
     }
 }

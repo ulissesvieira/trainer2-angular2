@@ -1,3 +1,6 @@
+import { Injectable } from '@angular/core';
+
+@Injectable()
 export class WorkoutPlan {
     constructor(
         public name: string,
@@ -16,12 +19,14 @@ export class WorkoutPlan {
     }
 }
 
+@Injectable()
 export class ExercisePlan {
     constructor(public exercise: Exercise, public duration: any) {
     }
 }
 
 export class Exercise {
+
     constructor(
         public name: string,
         public title: string,
