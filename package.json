@@ -2,14 +2,6 @@
   "name": "trainer",
   "version": "1.0.0",
   "description": "Angular 2 implementation of Personal Trainer in TypeScript",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chandermani/angular2byexample.git"
-  },
-  "bugs": {
-    "url": "https://github.com/chandermani/angular2byexample/issues"
-  },
-  "homepage": "https://github.com/chandermani/angular2byexample.git#readme",
   "devDependencies": {
     "@types/core-js": "0.9.36",
     "del": "^1.2.0",
