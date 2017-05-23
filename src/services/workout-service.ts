@@ -1,19 +1,33 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
 
 import { Exercise, ExercisePlan, WorkoutPlan } from './model';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Injectable()
 export class WorkoutService {
     public workouts: Array<WorkoutPlan> = [];
     public exercises: Array<Exercise> = [];
+    workout : WorkoutPlan;
+    collectionsUrl = "http://localhost:27017/local/collections";
 
-    constructor() {
-        this.setupInitialExercises();
-        this.setupInitialWorkouts();
+    constructor(public http : Http) {
+        /*this.setupInitialExercises();
+        this.setupInitialWorkouts();*/
+    }
+
+    static handleError (error : Response) {
+        console.log(error);
+        return Observable.throw(error.json().error || 'Server error');
     }
 
     getExercises() {
-        return this.exercises;
+        return this.http.get(this.collectionsUrl + '/exercises')
+            .map((res : Response) => <Exercise[]>res.json())
+            .catch(WorkoutService.handleError);
     }
 
     getExercise(exerciseName: string) {
@@ -50,7 +64,9 @@ export class WorkoutService {
     }
 
     getWorkouts() {
-        return this.workouts;
+        return this.http.get(this.collectionsUrl + '/workouts')
+            .map((res : Response) => <WorkoutPlan[]>res.json())
+            .catch(WorkoutService.handleError);
     }
 
     getWorkout(name: string) {
@@ -202,12 +218,12 @@ export class WorkoutService {
     }
 
     setupInitialWorkouts() {
-        let exercises = this.getExercises();
+        /*let exercises = this.getExercises();
         let workout = new WorkoutPlan("7MinWorkout", "7 Minute Workout", 10, []);
         for (var exercise of exercises) {
             workout.exercises.push(new ExercisePlan(exercise, 30));
         }
-        this.workouts.push(workout);
+        this.workouts.push(workout);*/
     }
 
     addWorkout(workout: WorkoutPlan) {
