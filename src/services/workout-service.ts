@@ -12,6 +12,7 @@ export class WorkoutService {
     public workouts: Array<WorkoutPlan> = [];
     public exercises: Array<Exercise> = [];
     workout : WorkoutPlan;
+    // alterar para o serviço criado com o nodejs
     collectionsUrl = "http://localhost:27017/local/collections";
 
     constructor(public http : Http) {
